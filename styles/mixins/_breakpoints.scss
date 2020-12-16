@@ -1,0 +1,32 @@
+/*
+** Breakpoints
+*/
+@mixin xs-and-up {
+  @media only screen and (min-width: #{$xs}) {
+    @content;
+  }
+}
+
+@mixin sm-and-up {
+  @media only screen and (min-width: #{$sm}) {
+    @content;
+  }
+}
+
+@mixin md-and-up {
+  @media only screen and (min-width: #{$md}) {
+    @content;
+  }
+}
+
+@mixin lg-and-up {
+  @media only screen and (min-width: #{$lg}) {
+    @content;
+  }
+}
+
+@mixin xl-and-up {
+  @media only screen and (min-width: #{$xl}) {
+    @content;
+  }
+}

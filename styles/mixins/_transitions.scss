@@ -1,0 +1,7 @@
+@mixin setTransition {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin setTransitionMedium {
+  transition: all 0.5s ease-in-out;
+}
