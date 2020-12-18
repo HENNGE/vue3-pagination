@@ -1,18 +1,16 @@
 <template>
   <ul class="Pagination">
     <li class="PaginationControl">
-      <icon
+      <icon-page-first
         class="Control"
         :class="{ 'Control-active': isPrevControlsActive }"
-        icon="page-first"
         @click="goToFirst"
       />
     </li>
     <li class="PaginationControl">
-      <icon
+      <icon-chevron-left
         class="Control"
         :class="{ 'Control-active': isPrevControlsActive }"
-        icon="chevron-left"
         @click="goToPrev"
       />
     </li>
@@ -20,23 +18,21 @@
       v-for="page in pagination"
       :key="`pagination-page-${page}`"
       :page="page"
-      :current="current"
+      :current="modelValue"
       :active-color="activeColor"
       @page-change="pageChangeHandler"
     />
     <li class="PaginationControl">
-      <icon
+      <icon-chevron-right
         class="Control"
         :class="{ 'Control-active': isNextControlsActive }"
-        icon="chevron-right"
         @click="goToNext"
       />
     </li>
     <li class="PaginationControl">
-      <icon
+      <icon-page-last
         class="Control"
         :class="{ 'Control-active': isNextControlsActive }"
-        icon="page-last"
         @click="goToLast"
       />
     </li>
@@ -45,12 +41,15 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import Icon from '@/components/utils/Icon.vue';
-import VPage from '@/components/atoms/VPage.vue';
+import VPage from './atoms/VPage.vue';
+import IconPageFirst from '../assets/icons/page-first.svg';
+import IconPageLast from '../assets/icons/page-last.svg';
+import IconChevronLeft from '../assets/icons/chevron-left.svg';
+import IconChevronRight from '../assets/icons/chevron-right.svg';
 
 export default defineComponent({
   name: 'VPagination',
-  components: { Icon, VPage },
+  components: { IconPageFirst, IconChevronLeft, IconChevronRight, IconPageLast, VPage },
   props: {
     pages: {
       type: Number,
@@ -60,7 +59,7 @@ export default defineComponent({
       type: Number,
       default: 1,
     },
-    current: {
+    modelValue: {
       type: Number,
       default: 0,
     },
@@ -69,14 +68,14 @@ export default defineComponent({
       default: '#DCEDFF',
     },
   },
-  emits: ['update'],
+  emits: ['update:modelValue'],
 
   setup(props: any, { emit }) {
     // pagination
     const pagination = computed((): number[] => {
       const res = [];
-      let rangeStart = props.current - props.rangeSize;
-      let rangeEnd = props.current + props.rangeSize;
+      let rangeStart = props.modelValue - props.rangeSize;
+      let rangeEnd = props.modelValue + props.rangeSize;
 
       if (rangeEnd > props.pages) {
         rangeEnd = props.pages;
@@ -114,36 +113,36 @@ export default defineComponent({
     });
 
     function pageChangeHandler(params: number) {
-      emit('update', params);
+      emit('update:modelValue', params);
     }
 
     // controls
     const isPrevControlsActive = computed((): boolean => {
-      return props.current > 1;
+      return props.modelValue > 1;
     });
     const isNextControlsActive = computed((): boolean => {
-      return props.current < props.pages;
+      return props.modelValue < props.pages;
     });
 
     function goToFirst(): void {
       if (isPrevControlsActive.value) {
-        emit('update', 1);
+        emit('update:modelValue', 1);
       }
     }
     function goToPrev(): void {
       if (isPrevControlsActive.value) {
-        emit('update', props.current - 1);
+        emit('update:modelValue', props.modelValue - 1);
       }
     }
 
     function goToLast(): void {
       if (isNextControlsActive.value) {
-        emit('update', props.pages);
+        emit('update:modelValue', props.pages);
       }
     }
     function goToNext(): void {
       if (isNextControlsActive.value) {
-        emit('update', props.current + 1);
+        emit('update:modelValue', props.modelValue + 1);
       }
     }
 
@@ -162,6 +161,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import './src/assets/styles/_settings.scss';
+
 .Pagination {
   display: flex;
   flex-flow: row;
@@ -178,9 +179,11 @@ export default defineComponent({
 }
 
 .Control {
-  width: rem(18px);
-  height: rem(18px);
-  margin: 0 rem(2px);
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0 2px;
   fill: $grey_01;
 
   &-active {

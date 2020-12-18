@@ -1,7 +1,7 @@
 <template>
   <li>
     <span v-if="page === null" class="DotsHolder">
-      <icon class="Dots" icon="pagination-dots" />
+      <icon-pagination-dots class="Dots" />
     </span>
     <span
       v-else
@@ -17,11 +17,11 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import Icon from '@/components/utils/Icon.vue';
+import IconPaginationDots from '../../assets/icons/pagination-dots.svg';
 
 export default defineComponent({
   name: 'VPage',
-  components: { Icon },
+  components: { IconPaginationDots },
   props: {
     page: {
       type: Number,
@@ -53,31 +53,33 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import './src/assets/styles/_settings.scss';
+
 .Page {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: rem(22px);
-  height: rem(22px);
-  margin: 0 rem(2px);
+  width: 22px;
+  height: 22px;
+  margin: 0 2px;
   color: $black_02;
   background-color: transparent;
-  font-size: rem(14px);
-  border-radius: rem(3px);
+  font-size: 14px;
+  border-radius: 3px;
   box-sizing: border-box;
   border-color: transparent;
   cursor: pointer;
-  @include setTransition;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    border: rem(1px) solid $grey_02;
-    @include setTransition;
+    border: 1px solid $grey_02;
+    transition: all 0.2s ease-in-out;
   }
 
   &-active {
     color: $black_01;
-    border: rem(1px) solid $grey_02;
-    @include setTransition;
+    border: 1px solid $grey_02;
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -85,14 +87,14 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
-  width: rem(22px);
-  height: rem(22px);
+  width: 22px;
+  height: 22px;
   margin: 0;
 }
 
 .Dots {
-  width: rem(8px);
-  height: rem(3px);
+  width: 8px;
+  height: 4px;
   fill: $grey_01;
 }
 </style>
