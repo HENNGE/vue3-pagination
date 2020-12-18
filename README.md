@@ -1,4 +1,4 @@
-# Vue 3 Datepicker
+# Vue 3 Pagination
 
 A Vue 3 component for pagination.
 
