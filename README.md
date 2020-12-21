@@ -79,5 +79,5 @@ Copyright © 2020 - Present, Julian Springaux
 
 ## Contact
 
-* [Send me an email 📧](mailto:julian.printemps@gmail.com)
+* [Send me an email](mailto:julian.printemps@gmail.com)
 * [Contact me through my website](https://julian-printemps.web.app/)
