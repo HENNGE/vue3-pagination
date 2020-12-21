@@ -2,7 +2,7 @@
 
 A Vue 3 component for pagination.
 
-## Table of Contents 📰
+## Table of Contents
 
 * [Demo](#demo)
 * [Installation](#installation)
