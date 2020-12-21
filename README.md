@@ -13,7 +13,7 @@ A Vue 3 component for pagination.
 * [Contact](#contact)
 
 ## Demo
-![Demo](https://raw.githubusercontent.com//julian-printemps/vue3-pagination/master/demo.gif)
+![Demo](https://raw.githubusercontent.com//julian-printemps/vue3-pagination/master/demo-1.gif)
 
 
 ## Installation
