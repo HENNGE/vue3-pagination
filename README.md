@@ -57,6 +57,7 @@ export default {
     :pages="10"
     :range-size="1"
     active-color="#DCEDFF"
+    @update:modelValue="updateHandler"
   />
 </template>
 ```
@@ -69,6 +70,12 @@ Main interaction with the pagination is done via `v-model` with `Number` as expe
 |`pages`|`Number`||Total number of pages|
 |`rangeSize`|`Number`|1|Number of page around the current page|
 |`activeColor`| `String` |#DCEDFF|Background color of the current page|
+
+
+## Events
+|ID|Output|Description
+|---|---|---|---|
+|`update:modelValue`|`Number`|The current page has been updated|
 
 
 ## License
