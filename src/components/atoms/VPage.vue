@@ -69,17 +69,14 @@ export default defineComponent({
   box-sizing: border-box;
   border-color: transparent;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     border: 1px solid $grey_02;
-    transition: all 0.2s ease-in-out;
   }
 
   &-active {
     color: $black_01;
     border: 1px solid $grey_02;
-    transition: all 0.2s ease-in-out;
   }
 }
 

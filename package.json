@@ -1,6 +1,6 @@
 {
   "name": "vue3-pagination",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "author": {
     "email": "julian.printemps@gmail.com",
     "name": "Julian Springaux"
@@ -29,7 +29,7 @@
   "main": "dist/vue3-pagination.cjs.js",
   "module": "dist/vue3-pagination.esm.js",
   "style": "dist/vue3-pagination.css",
-  "types": "dist/VPagination.vue.d.ts",
+  "types": "dist//src/components/VPagination.vue.d.ts",
   "files": [
     "src/components",
     "dist"
@@ -71,7 +71,7 @@
     "rollup": "^2.28.2",
     "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-scss": "^2.6.1",
-    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-svg-to-vue": "^1.0.0",
     "rollup-plugin-typescript2": "^0.27.2",
     "rollup-plugin-vue": "^6.0.0-beta.8",
     "sass": "^1.26.5",
