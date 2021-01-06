@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-    <v-pagination v-model="page" :pages="10" :current="current" />
+    <v-pagination v-model="page" :pages="10" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import { defineComponent, ref } from 'vue';
 import VPagination from '@/components/VPagination.vue';
 
 export default defineComponent({
-  name: 'Home',
+  name: 'App',
   components: {
     VPagination,
   },

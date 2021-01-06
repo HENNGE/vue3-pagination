@@ -86,7 +86,8 @@ export default defineComponent({
   justify-content: center;
   width: 22px;
   height: 22px;
-  margin: 0;
+  margin: 0 2px;
+  box-sizing: border-box;
 }
 
 .Dots {
