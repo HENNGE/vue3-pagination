@@ -97,8 +97,18 @@ export default defineComponent({
         res.push(null);
       }
 
-      for (let i = rangeStart; i <= rangeEnd; i++) {
-        res.push(i);
+      if (rangeStart <= 2) {
+        for (let i = rangeStart; i <= rangeEnd + (3 - rangeStart); i++) {
+          res.push(i);
+        }
+      } else if (rangeEnd >= props.pages - 2) {
+        for (let i = props.pages - (props.rangeSize * 2 + 2); i <= rangeEnd; i++) {
+          res.push(i);
+        }
+      } else {
+        for (let i = rangeStart; i <= rangeEnd; i++) {
+          res.push(i);
+        }
       }
 
       if (rangeEnd >= props.pages - 2) {
@@ -189,6 +199,12 @@ export default defineComponent({
   &-active {
     fill: $black_01;
     cursor: pointer;
+    transition: fill 0.2s ease-in-out;
+
+    &:hover {
+      fill: $black_00;
+      transition: fill 0.2s ease-in-out;
+    }
   }
 }
 </style>

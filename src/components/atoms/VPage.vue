@@ -3,15 +3,17 @@
     <span v-if="page === null" class="DotsHolder">
       <icon-pagination-dots class="Dots" />
     </span>
-    <span
+    <button
       v-else
       class="Page"
+      type="button"
+      :aria-label="`Go to page ${page}`"
       :class="{ 'Page-active': isActive }"
       :style="`background-color: ${isActive ? activeColor : 'transparent'};`"
       @click="clickHandler"
     >
       {{ page }}
-    </span>
+    </button>
   </li>
 </template>
 
@@ -69,6 +71,8 @@ export default defineComponent({
   box-sizing: border-box;
   border-color: transparent;
   cursor: pointer;
+  outline: 0;
+  user-select: none;
 
   &:hover {
     border: 1px solid $grey_02;
