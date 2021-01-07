@@ -74,36 +74,40 @@ export default defineComponent({
     // pagination
     const pagination = computed((): number[] => {
       const res = [];
-      let rangeStart = props.modelValue - props.rangeSize;
-      let rangeEnd = props.modelValue + props.rangeSize;
+      const minPaginationElems = 7;
 
-      if (rangeEnd > props.pages) {
-        rangeEnd = props.pages;
-        rangeStart = props.pages - props.rangeSize * 2;
-        rangeStart = rangeStart < 1 ? 1 : rangeStart;
-      }
+      let rangeStart = props.pages <= minPaginationElems ? 1 : props.modelValue - props.rangeSize;
+      let rangeEnd =
+        props.pages <= minPaginationElems ? props.pages : props.modelValue + props.rangeSize;
 
-      if (rangeStart <= 1) {
-        rangeStart = 1;
-        rangeEnd = Math.min(props.rangeSize * 2 + 1, props.pages);
-      }
+      rangeEnd = rangeEnd > props.pages ? props.pages : rangeEnd;
+      rangeStart = rangeStart < 1 ? 1 : rangeStart;
 
-      if (rangeStart <= 3) {
-        for (let i = 1; i < rangeStart; i++) {
-          res.push(i);
+      if (props.pages > minPaginationElems) {
+        const isStartBoundaryReached = rangeStart - 1 < 3;
+        const isEndBoundaryReached = props.pages - rangeEnd < 3;
+
+        if (isStartBoundaryReached) {
+          rangeEnd = minPaginationElems - 2;
+          for (let i = 1; i < rangeStart; i++) {
+            res.push(i);
+          }
+        } else {
+          res.push(1);
+          res.push(null);
         }
-      } else {
-        res.push(1);
-        res.push(null);
-      }
 
-      if (rangeStart <= 2) {
-        for (let i = rangeStart; i <= rangeEnd + (3 - rangeStart); i++) {
-          res.push(i);
-        }
-      } else if (rangeEnd >= props.pages - 2) {
-        for (let i = props.pages - (props.rangeSize * 2 + 2); i <= rangeEnd; i++) {
-          res.push(i);
+        if (isEndBoundaryReached) {
+          rangeStart = props.pages - (minPaginationElems - 3);
+          for (let i = rangeStart; i <= props.pages; i++) {
+            res.push(i);
+          }
+        } else {
+          for (let i = rangeStart; i <= rangeEnd; i++) {
+            res.push(i);
+          }
+          res.push(null);
+          res.push(props.pages);
         }
       } else {
         for (let i = rangeStart; i <= rangeEnd; i++) {
@@ -111,14 +115,9 @@ export default defineComponent({
         }
       }
 
-      if (rangeEnd >= props.pages - 2) {
-        for (let i = rangeEnd + 1; i <= props.pages; i++) {
-          res.push(i);
-        }
-      } else {
-        res.push(null);
-        res.push(props.pages);
-      }
+      console.log('rangeStart', rangeStart);
+      console.log('rangeEnd', rangeEnd);
+
       return res;
     });
 

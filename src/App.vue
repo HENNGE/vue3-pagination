@@ -15,7 +15,7 @@ export default defineComponent({
   },
 
   setup() {
-    const page = ref(5);
+    const page = ref(1);
 
     return { page };
   },
