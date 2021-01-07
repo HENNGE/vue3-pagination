@@ -74,7 +74,7 @@ export default defineComponent({
     // pagination
     const pagination = computed((): number[] => {
       const res = [];
-      const minPaginationElems = 7;
+      const minPaginationElems = 5 + props.rangeSize * 2;
 
       let rangeStart = props.pages <= minPaginationElems ? 1 : props.modelValue - props.rangeSize;
       let rangeEnd =
@@ -114,9 +114,6 @@ export default defineComponent({
           res.push(i);
         }
       }
-
-      console.log('rangeStart', rangeStart);
-      console.log('rangeEnd', rangeEnd);
 
       return res;
     });
