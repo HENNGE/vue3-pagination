@@ -38,15 +38,15 @@ export default defineComponent({
       default: '#DCEDFF',
     },
   },
-  emits: ['page-change'],
+  emits: ['update'],
 
-  setup(props: any, { emit }) {
+  setup(props, { emit }) {
     const isActive = computed(() => {
       return props.page === props.current;
     });
 
     function clickHandler() {
-      emit('page-change', props.page);
+      emit('update', props.page);
     }
 
     return { isActive, clickHandler };

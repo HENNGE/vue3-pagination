@@ -1,6 +1,6 @@
 <template>
   <ul class="Pagination">
-    <li class="PaginationControl">
+    <li v-if="!hideFirstButton" class="PaginationControl">
       <icon-page-first
         class="Control"
         :class="{ 'Control-active': isPrevControlsActive }"
@@ -20,7 +20,7 @@
       :page="page"
       :current="modelValue"
       :active-color="activeColor"
-      @page-change="pageChangeHandler"
+      @update="updatePageHandler"
     />
     <li class="PaginationControl">
       <icon-chevron-right
@@ -29,7 +29,7 @@
         @click="goToNext"
       />
     </li>
-    <li class="PaginationControl">
+    <li v-if="!hideLastButton" class="PaginationControl">
       <icon-page-last
         class="Control"
         :class="{ 'Control-active': isNextControlsActive }"
@@ -67,12 +67,24 @@ export default defineComponent({
       type: String,
       default: '#DCEDFF',
     },
+    showFirstButton: {
+      type: Boolean,
+      default: true,
+    },
+    hideFirstButton: {
+      type: Boolean,
+      default: false,
+    },
+    hideLastButton: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['update:modelValue'],
 
-  setup(props: any, { emit }) {
+  setup(props, { emit }) {
     // pagination
-    const pagination = computed((): number[] => {
+    const pagination = computed((): (number | null)[] => {
       const res = [];
       const minPaginationElems = 5 + props.rangeSize * 2;
 
@@ -118,7 +130,7 @@ export default defineComponent({
       return res;
     });
 
-    function pageChangeHandler(params: number) {
+    function updatePageHandler(params: number) {
       emit('update:modelValue', params);
     }
 
@@ -154,7 +166,7 @@ export default defineComponent({
 
     return {
       pagination,
-      pageChangeHandler,
+      updatePageHandler,
       isPrevControlsActive,
       isNextControlsActive,
       goToFirst,

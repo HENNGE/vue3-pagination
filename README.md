@@ -70,6 +70,8 @@ Main interaction with the pagination is done via `v-model` with `Number` as expe
 |`pages`|`Number`||Total number of pages|
 |`rangeSize`|`Number`|1|Number of page around the current page|
 |`activeColor`| `String` |#DCEDFF|Background color of the current page|
+|`hideFirstButton`| `Boolean` |false|Hide the button to go to the first page|
+|`hideLastButton`| `Boolean` |false|Hide the button to go to the last page|
 
 
 ## Events
