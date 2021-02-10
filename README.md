@@ -13,7 +13,7 @@ A Vue 3 component for pagination.
 * [Contact](#contact)
 
 ## Demo
-![Demo](https://raw.githubusercontent.com//julian-printemps/vue3-pagination/master/demo-1.gif)
+![Demo](https://raw.githubusercontent.com//julian-printemps/vue3-pagination/master/demo-2.gif)
 
 
 ## Installation
@@ -75,8 +75,8 @@ Main interaction with the pagination is done via `v-model` with `Number` as expe
 
 
 ## Events
-|ID|Output|Description
-|---|---|---|---|
+|ID|Output|Description|
+|---|---|---|
 |`update:modelValue`|`Number`|The current page has been updated|
 
 

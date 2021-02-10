@@ -67,10 +67,6 @@ export default defineComponent({
       type: String,
       default: '#DCEDFF',
     },
-    showFirstButton: {
-      type: Boolean,
-      default: true,
-    },
     hideFirstButton: {
       type: Boolean,
       default: false,
