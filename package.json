@@ -1,19 +1,16 @@
 {
   "name": "vue3-pagination",
-  "version": "1.0.14",
-  "author": {
-    "email": "julian.printemps@gmail.com",
-    "name": "Julian Springaux"
-  },
+  "version": "1.0.15",
+  "author": "Julian Springaux <julian.springaux@hennge.com>",
   "description": "A Vue 3 component for pagination.",
-  "homepage": "https://github.com/julian-printemps/vue3-pagination",
+  "homepage": "https://github.com/HENNGE/vue3-pagination",
   "repository": {
     "type": "git",
-    "url": "https://github.com/julian-printemps/vue3-pagination.git"
+    "url": "git+https://github.com/HENNGE/vue3-pagination.git"
   },
   "bugs": {
-    "url": "https://github.com/julian-printemps/vue3-pagination/issues",
-    "email": "julian.printemps@gmail.com"
+    "url": "https://github.com/HENNGE/vue3-pagination/issues",
+    "email": "julian.springaux@hennge.com"
   },
   "license": "MIT",
   "private": false,
