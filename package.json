@@ -1,6 +1,6 @@
 {
   "name": "@hennge/vue3-pagination",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "author": "Julian Springaux <julian.springaux@hennge.com>",
   "description": "A Vue 3 component for pagination.",
   "homepage": "https://github.com/HENNGE/vue3-pagination",

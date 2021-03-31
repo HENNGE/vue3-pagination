@@ -13,7 +13,7 @@ A Vue 3 component for pagination.
 * [Contact](#contact)
 
 ## Demo
-![Demo](https://raw.githubusercontent.com//julian-printemps/vue3-pagination/master/demo-2.gif)
+![Demo](https://raw.githubusercontent.com//HENNGE/vue3-pagination/master/demo-2.gif)
 
 
 ## Installation
@@ -22,12 +22,12 @@ Package is available on NPM: https://www.npmjs.com/package/vue3-pagination
 
 ```sh
 // with npm
-npm install vue3-pagination
+npm install @hennge/vue3-pagination
 ```
 
 ```sh
 // with yarn
-yarn add vue3-pagination
+yarn add @hennge/vue3-pagination
 ```
 
 The component is packaged mainly for use with bundlers, if you require a browser build - post an issue.
@@ -37,8 +37,8 @@ The component is packaged mainly for use with bundlers, if you require a browser
 
 ### Import component
 ```js
-import VPagination from "vue3-pagination";
-import "vue3-pagination/dist/vue3-pagination.css";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
   ...
